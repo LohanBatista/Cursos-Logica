@@ -1,0 +1,54 @@
+<meta charset="UTF-8">
+
+<ul>
+    <h2>Lista de produtos</h2>
+    <li>Limão</li>
+    <li>Laranja</li>
+    <li>Tenes</li>
+    <li>Espada</li>
+    <li>Chinelo</li>
+    <li>Maçã</li>
+</ul>
+
+<button>clique aqui</button>
+
+<script>
+    // pula linhas
+    function pulaLinha() {
+        document.write("<br>");
+        document.write("<br>");
+    }
+    // retorna o texto
+    function mostra(texto) {
+        document.write(texto);
+        pulaLinha();
+    }
+
+    function tentativa() {
+        var tentativas = 1;
+
+        while (tentativas <= 3) {
+
+            var produtoInserido = prompt("Insira qual produto você acha que é" + " tentativa " + tentativas);
+
+            var produtoVerade = "Limão";
+
+            if (produtoInserido == produtoVerade) {
+                mostra(produtoVerade + ", isso mesmo!");
+                break;
+            } else {
+                mostra("Burro! Tentativa " + tentativas);
+            }
+            tentativas++
+        }
+    }
+
+
+
+
+
+
+
+
+
+</script>

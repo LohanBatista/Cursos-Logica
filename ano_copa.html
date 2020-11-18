@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+
+<script>
+    // pula linhas
+    function pulaLinha() {
+        document.write("<br>");
+        document.write("<br>");
+    }
+    // retorna o texto
+    function mostra(texto) {
+        document.write(texto);
+        pulaLinha();
+    }
+
+
+    //Recupera dados 
+    var anoLimite = parseInt(prompt("Entre com o ano atual"));
+    var anoCopa = 1930;
+
+
+    // while(true) repete infinitamente - while(false) nao repete - passando parametro somente o que passou sera repetido
+    while (anoCopa <= anoLimite) {
+        mostra("Teve copa em " + anoCopa);
+        anoCopa = anoCopa + 4;
+    }
+
+    mostra("FIM");
+</script>

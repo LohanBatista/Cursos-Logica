@@ -1,0 +1,95 @@
+<meta charset="UTF-8">
+
+<body style="background-color: #505050;">
+    <input style="width: 50%; margin-top: 10rem ;background-color: #303030; color: #eac362;" />
+    <button style="width: 20%; background-color: #303030; color: #eac362; border-radius: 3px;margin-left: 2ch;">
+        Descubra meus segredos
+    </button>
+
+</body>
+<script>
+
+    //funcao que retorna um numero aleatorio
+    function sorteia() {
+        return Math.round(Math.random() * 10);
+    }
+
+
+    function sorteiaNumeros(quantidade) {
+        //a variavel segredos dentro da funcao so existe na funcao, por isso nao ira ter problema. retorna lista vazia
+        var segredos = [];
+        // variavel numero serve para saber qual a quantidade maxima que ira ficar em loop
+        var numero = 1;
+
+        while (numero <= quantidade) {
+
+            var numeroAleatorio = sorteia();
+
+            //condicao criada para nao aparecer o numero 0
+            if (numeroAleatorio !== 0) {
+                var achou = false;
+
+                //for criado para nao repetir numeros ou dados dentro do array
+                for (var posicao = 0; posicao < segredos.length; posicao++) {
+
+                    if (segredos[posicao] == numeroAleatorio) {
+                        achou = true;
+                        break;
+                    }
+                }
+
+                if (achou == false) {
+                    segredos.push(numeroAleatorio);
+                    numero++;
+                }
+            }
+
+        }
+        return segredos;
+    }
+
+    //pode-se usar array.PUSH para jogar itens para dentro do array - pode-se usar tambem uma funcao dentro da variavel para retornar uma lista de arrays
+    var segredos = sorteiaNumeros(5);
+
+
+    console.log(segredos);
+
+    //variavel que pega o dado da TAG para uso
+    var input = document.querySelector("input");
+    //ja comeca com foco no
+    input.focus();
+
+    function verifica() {
+        //variavel  para poder exibir alerta ao errar 
+        var achou = false;
+
+        //cria-se var posicao / posicao tem que repetir ate ser menor que 4 / e adiciona mais 1 - pode trocar posicao < 4 por posicao < array.length
+        for (var posicao = 0; posicao < segredos.length; posicao++) {
+            //condicao aplicada
+            if (input.value == segredos[posicao]) {
+
+                alert("Você ACERTOU!");
+                //achou retorna true para dar o break ao acertar
+                achou = true;
+                break;
+            }
+        }
+        //condicao para exibir alerta de erro
+        if (achou == false) {
+
+            alert("Você ERROU!");
+        }
+
+
+        //limpa o input apos tentativa
+        input.value = "";
+        //seleciona o input automaticamente apos a tentativa
+        input.focus();
+
+    }
+
+    var button = document.querySelector("button");
+    //acao de clicque chamando a funcao
+    button.onclick = verifica;
+
+</script>

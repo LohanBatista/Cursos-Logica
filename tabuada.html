@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+
+<script>
+    // pula linhas
+    function pulaLinha() {
+        document.write("<br>");
+        document.write("<br>");
+    }
+    // retorna o texto
+    function mostra(texto) {
+        document.write(texto);
+        pulaLinha();
+    }
+
+    //FORMA MENOS VERBOSA COM O FOR
+    var numeroInserido = parseInt(prompt("Insira aqui o numero que deseja saber a tabuada"));
+
+    for(var multiplicador = 1; multiplicador <= 10; multiplicador++) {
+        mostra(numeroInserido * multiplicador);
+    }
+
+
+    // FORMA MAIS VERBOSA E COM O WHILE
+    // var multiplicador = 1;
+    // var numeroInserido = parseInt(prompt("Insira aqui o numero que deseja saber a tabuada"));
+
+    // while(multiplicador <= 10) {
+    //     mostra(numeroInserido * multiplicador);
+    //     multiplicador = multiplicador + 1;
+    // }
+
+    mostra("FIM");
+
+
+</script>
